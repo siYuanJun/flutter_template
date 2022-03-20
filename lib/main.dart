@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/pages/index/index.dart';
-import 'package:flutter_template/plugins/Route.dart';
+import 'package:flutter_template/common/Route.dart';
 
 void main() {
   runApp(const MyApp());

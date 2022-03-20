@@ -40,10 +40,16 @@ class Temp extends StatelessWidget {
                     title: Text('提示'),
                     content: Text('确认删除吗？'),
                     actions: <Widget>[
-                      FlatButton(child: Text('取消'), onPressed: () {}),
+                      FlatButton(
+                          child: Text('取消'),
+                          onPressed: () {
+                            Navigator.of(context).pop(false);
+                          }),
                       FlatButton(
                         child: Text('确认'),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pop(false);
+                        },
                       ),
                     ],
                   );

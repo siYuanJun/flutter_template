@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/api/Git.dart';
 import 'package:flutter_template/components/Temp.dart';
 import 'package:flutter_template/model/ProductClass.dart';
 
@@ -25,19 +26,29 @@ class _IndexWidgetState extends State<IndexWidget> {
         appBar: AppBar(title: const Text("首页")),
         body: Column(
           children: [
+            TextButton(onPressed: () async {
+              var res = await Git().getUserInfo();
+              print("222: " + res.toString());
+            }, child: const Text('获取Github')),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("route-login");
+                },
+                child: const Text("登录",
+                    style: (TextStyle(color: Colors.black87, fontSize: 30)))),
             Temp(
               active: _active,
               onChanged: _handleTapboxChanged,
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed("ProductDetails", arguments: Product(10010));
+                  Navigator.of(context).pushNamed("route-product-details",
+                      arguments: Product(10010));
                 },
                 child: const Text(
                   "商品详情",
                   style: (TextStyle(color: Colors.black87, fontSize: 30)),
-                )
-            ),
+                )),
           ],
         ));
   }
